@@ -83,7 +83,6 @@ function fibsIterative(times) {
   if (times === 0) return [0];
 
   let arr = [0, 1];
-
   for (let i = 1; i < times; i++) {
     const [current, next] = arr.slice(-2);
     arr.push(current + next);

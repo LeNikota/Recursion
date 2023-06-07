@@ -9,7 +9,6 @@ function fibsIterative(times) {
   if (times === 0) return [0];
 
   let arr = [0, 1];
-
   for (let i = 1; i < times; i++) {
     const [current, next] = arr.slice(-2);
     arr.push(current + next);
@@ -39,7 +38,7 @@ console.log(fibsRecursive(8));
 
 ```
 
-Using THE recursive algorithm to sort an array using merge sort
+Using the recursive algorithm to sort an array using merge sort
 
 ```JS
 
