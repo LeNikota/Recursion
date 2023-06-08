@@ -38,8 +38,52 @@ console.log(fibsRecursive(8));
 
 ```
 
-Using the recursive algorithm to sort an array using merge sort
+Using the mergesort recursive algorithm to sort an array 
 
 ```JS
+
+function mergeSort(arr) {
+  if(arr.length === 1){
+    return arr;
+  } else {
+    const midIndex = Math.floor(arr.length / 2);
+    const left = mergeSort(arr.slice(0,midIndex))
+    const right = mergeSort(arr.slice(midIndex))
+
+    return merge(left,right);
+  }
+}
+
+function merge(leftArr, rightArr) {
+  const mergedArr = [];
+  let leftIndex = 0; // Left finger
+  let rightIndex = 0; // Right finger
+
+  while (leftIndex < leftArr.length && rightIndex < rightArr.length) { 
+    if (leftArr[leftIndex] < rightArr[rightIndex]) {
+      mergedArr.push(leftArr[leftIndex]);
+      leftIndex++;
+    } else {
+      mergedArr.push(rightArr[rightIndex]);
+      rightIndex++;
+    }
+  }
+
+  // Add the remaining elements from either leftArr or rightArr
+  while (leftIndex < leftArr.length) {
+    mergedArr.push(leftArr[leftIndex]);
+    leftIndex++
+  }
+  while (rightIndex < rightArr.length) {
+    mergedArr.push(rightArr[rightIndex]);
+    rightIndex++
+  }
+  return mergedArr;
+}
+
+const array = [6,3,2,7,8,4,1,5];
+
+console.log(array);
+console.log(mergeSort(array));
 
 ```
